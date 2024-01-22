@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/Log.webp" type="images/png">
+    <link rel="stylesheet" href="style/main.css">
+    <title>Корея</title>
+</head>
+
+
+<body>
+
+<header>
+    <a href="" class="brand">© Dream school</a>
+</header>
+
+
+<section class="home">
+    <video class="video-slide active" src="1.mp4" autoplay muted loop></video>
+    <video class="video-slide" src="2.mp4" autoplay muted loop></video>
+    <video class="video-slide" src="3.mp4" autoplay muted loop></video>
+    
+<div class="content active">
+    <div class="box">
+    <img src="img/Корея.png" alt="" class="img1">
+        <h1>О Корее <br><span></span></h1>    
+    </div>
+    
+    <p class="introduction__title">
+        Республика Корея — полуостровное государство в Восточной Азии, с трех сторон омывается морями , а на севере граничит с КНДР (Северной Кореей). 
+        Политическое устройство — президентская республика. Столица — Сеул. 
+    </p>
+</div>
+<div class="content">
+    <h1>Корея в Средие века<br><span></span></h1>
+    <p class="text__content">
+        «Три корейских государства» — так называют раннефеодальные корейские государства 
+        Когурё, Пэкче и Силла, которые в период с I века до н. э. по VII век н. э. занимали Корейский полуостров и Маньчжурию.
+        </p>
+</div>
+<div class="content">
+    <h2>K-pop<br><span></span></h2>
+    <p class="text__content-g">
+        K-pop — музыкальный жанр, возникший в Южной Корее и вобравший в себя элементы западного электропопа, 
+        хип-хопа, танцевальной музыки и современного ритм-н-блюза.
+        </p>
+</div>
+
+
+
+<div class="slider-navigation">
+    <div class="nav-btn active"></div>
+    <div class="nav-btn"></div>
+    <div class="nav-btn"></div>
+
+
+</div>
+</section>    
+   
+
+<script type="text/javascript">
+
+const btns = document.querySelectorAll(".nav-btn");
+const slides = document.querySelectorAll(".video-slide");
+const contents = document.querySelectorAll(".content");
+
+var sliderNav = function(manual){
+btns.forEach((btn)=>{
+btn.classList.remove("active");
+});
+
+slides.forEach((slide) => {
+    slide.classList.remove("active");
+});
+
+contents.forEach((content)=>{
+    content.classList.remove("active");
+
+});
+
+    btns[manual].classList.add("active");
+    slides[manual].classList.add("active");
+    contents [manual].classList.add("active");
+}
+
+btns.forEach((btn, i) => {
+btn.addEventListener("click", () => {
+sliderNav(i);
+});
+});
+
+
+
+
+class Text{
+    constructor(obj){
+      this.text = document.querySelector(obj)
+      this.fullText = this.text.innerHTML
+      this.text.innerHTML = ''
+  
+      this.str()
+    }
+    str(x = 0){
+      this.text.innerHTML += this.fullText[x]
+      x++
+      if (x < this.fullText.length) {
+        setTimeout(() => {
+          this.str(x)
+        }, 100);
+      }
+    }
+  }
+  const text = new Text('.introduction__title')
+
+
+</script>
+
+</body>
+</html>
